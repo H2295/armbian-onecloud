@@ -168,6 +168,12 @@ jobs:
               EXPERT=yes \
               USE_CCACHE=no
           sudo chown $(id -u):$(id -g) -R output/
+      - name: Verify artifact files exist
+        run: |
+          if [ -z "$(ls -A output/debs/)" ]; then
+            echo "No files found in output/debs/"
+            exit 1
+          fi
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
