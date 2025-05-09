@@ -189,7 +189,8 @@ jobs:
       fail-fast: false
       matrix:
         BRANCH:
-          - current
+          # - current
+          - vendor
         RELEASE:
           # - focal # Ubuntu 20.04 LTS
           # - jammy # Ubuntu 22.04 LTS
@@ -203,7 +204,7 @@ jobs:
           # - sid # Debian unstable
         TYPE:
           - minimal
-          - cli
+          #- cli
           # - desktop
         include:
           - TYPE: desktop
